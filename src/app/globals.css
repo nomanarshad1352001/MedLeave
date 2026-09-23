@@ -4,7 +4,7 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
 
-  /* Primary slate / navy */
+  /* ===== MODERN (default) — Slate/Navy + Trust Teal ===== */
   --color-slate-50: #f8fafc;
   --color-slate-100: #f1f5f9;
   --color-slate-200: #e2e8f0;
@@ -17,7 +17,6 @@
   --color-slate-900: #0f172a;
   --color-slate-950: #020617;
 
-  /* Trust accent teal */
   --color-teal-50: #f0fdfa;
   --color-teal-100: #ccfbf1;
   --color-teal-200: #99f6e4;
@@ -29,15 +28,16 @@
   --color-teal-800: #115e59;
   --color-teal-900: #134e4a;
 
-  /* Danger rose */
+  --color-rose-50: #fff1f2;
   --color-rose-100: #ffe4e6;
   --color-rose-200: #fecdd3;
+  --color-rose-300: #fda4af;
   --color-rose-400: #fb7185;
   --color-rose-500: #f43f5e;
   --color-rose-600: #e11d48;
   --color-rose-700: #be123c;
 
-  /* Warning amber */
+  --color-amber-50: #fffbeb;
   --color-amber-100: #fef3c7;
   --color-amber-200: #fde68a;
   --color-amber-300: #fcd34d;
@@ -46,7 +46,33 @@
   --color-amber-600: #d97706;
   --color-amber-700: #b45309;
 
-  /* Surfaces */
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+
+  --color-sky-50: #f0f9ff;
+  --color-sky-100: #e0f2fe;
+  --color-sky-200: #bae6fd;
+  --color-sky-300: #7dd3fc;
+  --color-sky-400: #38bdf8;
+  --color-sky-500: #0ea5e9;
+  --color-sky-600: #0284c7;
+  --color-sky-700: #0369a1;
+
+  --color-violet-50: #f5f3ff;
+  --color-violet-100: #ede9fe;
+  --color-violet-200: #ddd6fe;
+  --color-violet-300: #c4b5fd;
+  --color-violet-400: #a78bfa;
+  --color-violet-500: #8b5cf6;
+  --color-violet-600: #7c3aed;
+  --color-violet-700: #6d28d9;
+
   --color-paper: #f8fafc;
   --color-parchment: #f1f5f9;
   --color-card: #ffffff;
@@ -85,6 +111,185 @@
   }
 }
 
+/* ================================================================== */
+/* SEMANTIC RUNTIME TOKENS — resolved per theme                       */
+/* ================================================================== */
+:root {
+  /* Leave categories */
+  --lv-annual: #0d9488;
+  --lv-study: #f59e0b;
+  --lv-parental: #8b5cf6;
+  --lv-sickness: #f43f5e;
+  --lv-locum: #0ea5e9;
+
+  /* Pace verdicts */
+  --pace-on: #10b981;
+  --pace-deficit: #f43f5e;
+  --pace-surplus: #f59e0b;
+
+  /* Locum status */
+  --locum-none: #64748b;
+  --locum-needed: #f43f5e;
+  --locum-booked: #0d9488;
+
+  /* Surfaces used by charts / overlays */
+  --tooltip-bg: #0f172a;
+  --tooltip-fg: #f8fafc;
+  --avatar-ink: #0f172a;
+  --grid-line: rgba(15, 23, 42, 0.07);
+  --chart-axis: rgba(15, 23, 42, 0.4);
+  --chart-bar-top: #14b8a6;
+  --chart-bar-bottom: #0f766e;
+
+  /* Clinician accents */
+  --st-eleanor: #0d9488;
+  --st-sarah: #f59e0b;
+  --st-james: #0ea5e9;
+  --st-amara: #8b5cf6;
+  --st-nina: #f43f5e;
+  --st-marcus: #0f766e;
+  --st-priya: #b45309;
+  --st-tom: #0369a1;
+  --st-new: #334155;
+
+  /* Sites */
+  --site-oak: #0d9488;
+  --site-pine: #f59e0b;
+}
+
+/* ================================================================== */
+/* THEME: CLASSIC — the original Pine & Gold luxury design            */
+/* ================================================================== */
+html[data-theme="classic"] {
+  /* Neutral scale → deep clinical pine */
+  --color-slate-50: #eff5f2;
+  --color-slate-100: #dce9e2;
+  --color-slate-200: #b7d3c6;
+  --color-slate-300: #8bb5a4;
+  --color-slate-400: #5e9480;
+  --color-slate-500: #3f7a66;
+  --color-slate-600: #2a6a56;
+  --color-slate-700: #235647;
+  --color-slate-800: #1e453b;
+  --color-slate-900: #16332b;
+  --color-slate-950: #0a1f1a;
+
+  /* Accent scale → burnished gold */
+  --color-teal-50: #fbf7ea;
+  --color-teal-100: #f7f0da;
+  --color-teal-200: #efe2b8;
+  --color-teal-300: #e5cf85;
+  --color-teal-400: #d9b44a;
+  --color-teal-500: #c9a227;
+  --color-teal-600: #a98620;
+  --color-teal-700: #84691b;
+  --color-teal-800: #6a5416;
+  --color-teal-900: #4f3e11;
+
+  /* Danger → clay */
+  --color-rose-50: #fbf1ed;
+  --color-rose-100: #f7e7e1;
+  --color-rose-200: #eecabb;
+  --color-rose-300: #e2a88e;
+  --color-rose-400: #d1815f;
+  --color-rose-500: #c05b3c;
+  --color-rose-600: #a84c31;
+  --color-rose-700: #8a3e27;
+
+  /* Warning → warm ochre */
+  --color-amber-50: #fdf6e9;
+  --color-amber-100: #f9edd2;
+  --color-amber-200: #f2dda6;
+  --color-amber-300: #e9c874;
+  --color-amber-400: #dcb24a;
+  --color-amber-500: #c99a2e;
+  --color-amber-600: #a97d20;
+  --color-amber-700: #856117;
+
+  /* Success → pine green */
+  --color-emerald-50: #eff5f2;
+  --color-emerald-100: #dce9e2;
+  --color-emerald-200: #b7d3c6;
+  --color-emerald-300: #8bb5a4;
+  --color-emerald-400: #5e9480;
+  --color-emerald-500: #3f7a66;
+  --color-emerald-600: #2a6a56;
+  --color-emerald-700: #235647;
+
+  /* Info → muted steel */
+  --color-sky-50: #f2f6fa;
+  --color-sky-100: #e6ecf3;
+  --color-sky-200: #d3dde9;
+  --color-sky-300: #c0cfdf;
+  --color-sky-400: #8fa6bd;
+  --color-sky-500: #6a8aa8;
+  --color-sky-600: #4c6e91;
+  --color-sky-700: #33506e;
+
+  /* Plum */
+  --color-violet-50: #f8f4f9;
+  --color-violet-100: #f0e7f1;
+  --color-violet-200: #e2d5e4;
+  --color-violet-300: #cdb9d0;
+  --color-violet-400: #b394b7;
+  --color-violet-500: #98789c;
+  --color-violet-600: #7c5a80;
+  --color-violet-700: #5e3b60;
+
+  /* Warm paper surfaces */
+  --color-paper: #f7f5ef;
+  --color-parchment: #efebdf;
+  --color-card: #fdfcf8;
+  --color-ink: #12201c;
+
+  /* Semantic runtime tokens */
+  --lv-annual: #2a6a56;
+  --lv-study: #b18e1e;
+  --lv-parental: #8a5a8c;
+  --lv-sickness: #c05b3c;
+  --lv-locum: #4c6e91;
+
+  --pace-on: #2a6a56;
+  --pace-deficit: #c05b3c;
+  --pace-surplus: #b18e1e;
+
+  --locum-none: #6b7a74;
+  --locum-needed: #c05b3c;
+  --locum-booked: #2a6a56;
+
+  --tooltip-bg: #0a1f1a;
+  --tooltip-fg: #f7f5ef;
+  --avatar-ink: #0a1f1a;
+  --grid-line: rgba(10, 31, 26, 0.07);
+  --chart-axis: rgba(18, 32, 28, 0.4);
+  --chart-bar-top: #3f7a66;
+  --chart-bar-bottom: #1e453b;
+
+  --st-eleanor: #2a6a56;
+  --st-sarah: #b18e1e;
+  --st-james: #4c6e91;
+  --st-amara: #8a5a8c;
+  --st-nina: #c05b3c;
+  --st-marcus: #1e453b;
+  --st-priya: #7a6414;
+  --st-tom: #33506e;
+  --st-new: #3f7a66;
+
+  --site-oak: #2a6a56;
+  --site-pine: #b18e1e;
+}
+
+/* Classic restores the softer, warmer shadow language */
+html[data-theme="classic"] .shadow-soft {
+  box-shadow: 0 1px 2px rgba(10, 31, 26, 0.05), 0 10px 30px -14px rgba(10, 31, 26, 0.14);
+}
+html[data-theme="classic"] .shadow-lift {
+  box-shadow: 0 2px 6px rgba(10, 31, 26, 0.06), 0 24px 60px -22px rgba(10, 31, 26, 0.28);
+}
+html[data-theme="classic"] .font-display {
+  letter-spacing: -0.015em;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
@@ -115,48 +320,33 @@ body {
   color: var(--color-ink);
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.45s ease, color 0.45s ease;
 }
 
 ::selection {
   background: var(--color-teal-300);
-  color: var(--color-slate-950);
+  color: var(--color-slate-900);
 }
 
-/* Refined scrollbars */
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(15, 23, 42, 0.2) transparent;
 }
-*::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-*::-webkit-scrollbar-thumb {
-  background: rgba(15, 23, 42, 0.16);
-  border-radius: 8px;
-}
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: rgba(15, 23, 42, 0.16); border-radius: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
 
-/* Date & time inputs */
 input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="time"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  opacity: 0.55;
-}
+input[type="time"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.55; }
 input[type="date"]:hover::-webkit-calendar-picker-indicator,
-input[type="time"]:hover::-webkit-calendar-picker-indicator {
-  opacity: 0.9;
-}
+input[type="time"]:hover::-webkit-calendar-picker-indicator { opacity: 0.9; }
 
-/* Range slider */
 input[type="range"].lux-range {
   -webkit-appearance: none;
   appearance: none;
   height: 6px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--color-teal-500) var(--fill, 50%), rgba(255, 255, 255, 0.16) var(--fill, 50%));
+  background: linear-gradient(90deg, var(--color-teal-500) var(--fill, 50%), rgba(127, 127, 127, 0.18) var(--fill, 50%));
   outline: none;
 }
 input[type="range"].lux-range::-webkit-slider-thumb {
@@ -166,8 +356,8 @@ input[type="range"].lux-range::-webkit-slider-thumb {
   height: 22px;
   border-radius: 999px;
   background: var(--color-teal-500);
-  border: 3px solid #0f172a;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  border: 3px solid var(--color-slate-900);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
   cursor: grab;
 }
 input[type="range"].lux-range::-moz-range-thumb {
@@ -175,14 +365,16 @@ input[type="range"].lux-range::-moz-range-thumb {
   height: 22px;
   border-radius: 999px;
   background: var(--color-teal-500);
-  border: 3px solid #0f172a;
+  border: 3px solid var(--color-slate-900);
   cursor: grab;
 }
 
-/* Subtle grid for the app shell backdrop */
 .texture-grain {
   background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
   background-size: 22px 22px;
+}
+html[data-theme="classic"] .texture-grain {
+  background-image: radial-gradient(rgba(10, 31, 26, 0.045) 1px, transparent 1px);
 }
 
 .rule-h {
@@ -190,21 +382,11 @@ input[type="range"].lux-range::-moz-range-thumb {
   height: 1px;
 }
 
-/* App entrance choreography */
-.ent-img {
-  animation: entrance-img 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.ent-rise {
-  animation: entrance-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.ent-item {
-  animation: entrance-item 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.gate-panel {
-  animation: gate-slide 0.95s cubic-bezier(0.84, 0, 0.16, 1) both;
-}
+.ent-img { animation: entrance-img 1.15s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ent-rise { animation: entrance-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ent-item { animation: entrance-item 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.gate-panel { animation: gate-slide 0.95s cubic-bezier(0.84, 0, 0.16, 1) both; }
 
-/* Skeleton shimmer for loading states */
 .skeleton {
   background-image: linear-gradient(
     90deg,
@@ -217,25 +399,12 @@ input[type="range"].lux-range::-moz-range-thumb {
   animation: shimmer 1.6s linear infinite;
 }
 
-/* Tooltip */
-.tip-pop {
-  animation: entrance-item 0.18s ease-out both;
-}
+.tip-pop { animation: entrance-item 0.18s ease-out both; }
 
-/* Pointer utilities */
-.dg-main {
-  touch-action: pan-y;
-}
-.no-select {
-  -webkit-user-select: none;
-  user-select: none;
-}
-.ghost {
-  pointer-events: none;
-}
+.dg-main { touch-action: pan-y; }
+.no-select { -webkit-user-select: none; user-select: none; }
+.ghost { pointer-events: none; }
 
 @media print {
-  .no-print {
-    display: none !important;
-  }
+  .no-print { display: none !important; }
 }

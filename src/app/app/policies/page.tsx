@@ -139,7 +139,7 @@ export default function PoliciesPage() {
                 value={draft.accrualCompletionMonths}
                 onChange={(e) => set({ accrualCompletionMonths: Number(e.target.value) })}
                 className="lux-range w-full"
-                style={{ ["--fill" as string]: `${(draft.accrualCompletionMonths / 12) * 100}%`, background: `linear-gradient(90deg, #0D9488 ${(draft.accrualCompletionMonths / 12) * 100}%, rgba(15,23,42,0.1) ${(draft.accrualCompletionMonths / 12) * 100}%)` }}
+                style={{ ["--fill" as string]: `${(draft.accrualCompletionMonths / 12) * 100}%`, background: `linear-gradient(90deg, var(--color-teal-600) ${(draft.accrualCompletionMonths / 12) * 100}%, rgba(127,127,127,0.15) ${(draft.accrualCompletionMonths / 12) * 100}%)` }}
               />
               <p className="mt-1.5 text-[11px] leading-relaxed text-slate-900/45">
                 Entitlement accrues linearly and is fully available after this many months — earlier bookings borrow ahead of accrual and need an override note.

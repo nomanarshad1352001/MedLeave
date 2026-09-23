@@ -178,7 +178,7 @@ export default function RosterPage() {
                       </span>
                     </td>
                     <td className="px-5 py-3.5">
-                      <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold" style={{ background: (site?.color ?? "#0D9488") + "14", color: site?.color }}>
+                      <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold" style={{ background: `color-mix(in srgb, ${site?.color ?? "var(--site-oak)"} 12%, transparent)`, color: site?.color }}>
                         <Building2 className="size-3" /> {site?.short}
                       </span>
                     </td>
@@ -192,7 +192,7 @@ export default function RosterPage() {
                     <td className="px-5 py-3.5">
                       {c.clinical && target > 0 ? (
                         <span className="flex items-center gap-2.5">
-                          <Bar value={pace} color={pace >= 97 ? "#0D9488" : pace >= 88 ? "#F59E0B" : "#F43F5E"} className="w-28" />
+                          <Bar value={pace} color={pace >= 97 ? "var(--pace-on)" : pace >= 88 ? "var(--pace-surplus)" : "var(--pace-deficit)"} className="w-28" />
                           <span className="text-[12px] font-bold tabular-nums text-slate-900">{pace}%</span>
                         </span>
                       ) : (
@@ -297,7 +297,7 @@ function ClinicianDrawer({
               <p className="mt-1.5 font-display text-[26px] font-medium leading-none text-slate-900">
                 {data.annual.remaining}<span className="text-sm text-slate-900/40"> / {data.annual.entitlement}d</span>
               </p>
-              <Bar value={((data.annual.used + data.annual.pending) / data.annual.entitlement) * 100} color="#0D9488" className="mt-3" />
+              <Bar value={((data.annual.used + data.annual.pending) / data.annual.entitlement) * 100} color="var(--lv-annual)" className="mt-3" />
               <p className="mt-2 text-[10.5px] text-slate-900/45">{data.annual.used}d used · {data.annual.pending}d pending · accrued {data.annual.accrued}d</p>
             </div>
             <div className="rounded-2xl border border-slate-900/[0.07] p-4">
@@ -305,7 +305,7 @@ function ClinicianDrawer({
               <p className="mt-1.5 font-display text-[26px] font-medium leading-none text-slate-900">
                 {data.study.remaining}<span className="text-sm text-slate-900/40"> / {data.study.entitlement}d</span>
               </p>
-              <Bar value={((data.study.used + data.study.pending) / Math.max(1, data.study.entitlement)) * 100} color="#F59E0B" className="mt-3" />
+              <Bar value={((data.study.used + data.study.pending) / Math.max(1, data.study.entitlement)) * 100} color="var(--lv-study)" className="mt-3" />
               <p className="mt-2 text-[10.5px] text-slate-900/45">{data.study.used}d used · {data.study.pending}d pending</p>
             </div>
           </div>

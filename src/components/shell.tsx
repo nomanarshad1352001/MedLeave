@@ -30,6 +30,7 @@ import { useStore } from "@/store/useStore";
 import { correlationWarnings, coverageAlerts, fmtDay, fmtRange, todayISO } from "@/lib/engine";
 import { LEAVE_META, ROLE_LABEL } from "@/lib/types";
 import { Avatar, Badge, cn } from "./ui";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 import { AppZoo } from "./appzoo";
 import { readPoint } from "@/lib/anim";
 
@@ -524,7 +525,9 @@ export function AppShell({ children }: { children: ReactNode }) {
 
             <div className="ml-auto flex items-center gap-2.5">
               <SearchPalette />
+              <ThemeSwitcher />
               <Notifications />
+              <span className="hidden w-px h-6 bg-slate-900/10 sm:block" />
               {me && (
                 <div className="flex items-center gap-2.5">
                   <div className="hidden items-center gap-2.5 rounded-full border border-slate-900/10 bg-card py-1.5 pl-1.5 pr-3 shadow-soft sm:flex">

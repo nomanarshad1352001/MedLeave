@@ -38,8 +38,11 @@ export interface ActionResult {
   advance?: boolean;
 }
 
+export type ThemeName = "modern" | "classic";
+
 interface AppState {
   authed: boolean;
+  theme: ThemeName;
   currentUserId: string;
   siteFilter: string;
   sites: Site[];
@@ -52,6 +55,7 @@ interface AppState {
 
   signIn: (email: string, password: string) => { ok: boolean; error?: string };
   signOut: () => void;
+  setTheme: (t: ThemeName) => void;
   setUser: (id: string) => void;
   setSiteFilter: (id: string) => void;
   pushToast: (t: Omit<ToastMsg, "id">) => void;
@@ -108,6 +112,7 @@ export const useStore = create<AppState>()(
   persist(
     (set, get) => ({
       authed: false,
+      theme: "modern",
       currentUserId: "c_eleanor",
       siteFilter: "all",
       sites: seed.sites,
@@ -135,6 +140,8 @@ export const useStore = create<AppState>()(
         return { ok: true };
       },
       signOut: () => set({ authed: false }),
+
+      setTheme: (t) => set({ theme: t }),
 
       setUser: (id) => set({ currentUserId: id }),
       setSiteFilter: (id) => set({ siteFilter: id }),
@@ -570,6 +577,7 @@ export const useStore = create<AppState>()(
       storage: createJSONStorage(() => localStorage),
       partialize: (s) => ({
         authed: s.authed,
+        theme: s.theme,
         currentUserId: s.currentUserId,
         siteFilter: s.siteFilter,
         sites: s.sites,
@@ -588,6 +596,7 @@ export const useStore = create<AppState>()(
         return {
           ...p,
           authed: p.authed ?? false,
+          theme: p.theme ?? "modern",
           policy: { ...DEFAULT_POLICY, ...(p.policy ?? {}) },
           clinicians: (p.clinicians ?? []).map((c) => {
             const seedC = seed.clinicians.find((x) => x.id === c.id);

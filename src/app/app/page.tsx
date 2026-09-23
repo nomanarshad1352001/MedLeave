@@ -112,7 +112,7 @@ export default function DashboardPage() {
       value: v,
       color: LEAVE_META[t as keyof typeof LEAVE_META].color,
     }));
-    if (pendingDays > 0) out.push({ name: "Pending approval", value: pendingDays, color: "#FCD34D" });
+    if (pendingDays > 0) out.push({ name: "Pending approval", value: pendingDays, color: "var(--color-amber-300)" });
     return out;
   }, [isManager, scopedRequests, requests, currentUserId, yrS, yrE]);
 
@@ -213,7 +213,7 @@ export default function DashboardPage() {
           </p>
           <div className="mt-3 flex flex-wrap gap-2 text-[10px] font-bold">
             <span className="rounded-full bg-emerald-400/20 px-2.5 py-1 text-emerald-200">On Track</span>
-            <span className="rounded-full bg-rose-500/25 px-2.5 py-1 text-[#FECDD3]">At Risk — Deficit</span>
+            <span className="rounded-full bg-rose-500/25 px-2.5 py-1 text-rose-200">At Risk — Deficit</span>
             <span className="rounded-full bg-teal-400/25 px-2.5 py-1 text-teal-200">Surplus — Overworking</span>
           </div>
         </div>
@@ -273,7 +273,7 @@ export default function DashboardPage() {
             eyebrow="Rolling 12 months"
             title={isManager ? "Practice session delivery" : "Your session delivery"}
             action={
-              <Badge tone="slate"><Dot color="#F59E0B" /> pro-rata target</Badge>
+              <Badge tone="slate"><Dot color="var(--pace-surplus)" /> pro-rata target</Badge>
             }
           />
           <MonthlyBars data={series} height={272} />
@@ -281,7 +281,7 @@ export default function DashboardPage() {
 
         <Card className="flex flex-col items-center p-6">
           <SectionHead eyebrow="Commitment" title="Rolling session quota" className="w-full" />
-          <Ring value={pct} size={170} stroke={13} color={pct >= 90 ? "#0D9488" : "#F43F5E"} className="my-3">
+          <Ring value={pct} size={170} stroke={13} color={pct >= 90 ? "var(--pace-on)" : "var(--pace-deficit)"} className="my-3">
             <div className="text-center">
               <p className="font-display text-[38px] font-medium leading-none text-slate-900">{pct}%</p>
               <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-700/50">of target</p>
@@ -473,7 +473,7 @@ export default function DashboardPage() {
                           <p className="text-[12.5px] font-bold text-rose-700">{site?.short} · {fmtDay(a.date)}</p>
                           <p className="text-[11px] text-rose-700/70">{a.clinicianIds.length} of {a.siteCount} clinicians absent</p>
                         </div>
-                        <Bar value={(a.clinicianIds.length / a.siteCount) * 100} color="#F43F5E" className="w-14" thin />
+                        <Bar value={(a.clinicianIds.length / a.siteCount) * 100} color="var(--pace-deficit)" className="w-14" thin />
                       </li>
                     );
                   })}

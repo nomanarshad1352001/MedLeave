@@ -37,11 +37,11 @@ import { useStore } from "@/store/useStore";
 type View = "month" | "week";
 
 const BAR_COLORS: Record<LeaveType, string> = {
-  annual: "#0D9488",
-  study: "#F59E0B",
-  parental: "#8B5CF6",
-  sickness: "#F43F5E",
-  locum: "#0EA5E9",
+  annual: "var(--lv-annual)",
+  study: "var(--lv-study)",
+  parental: "var(--lv-parental)",
+  sickness: "var(--lv-sickness)",
+  locum: "var(--lv-locum)",
 };
 
 export default function CalendarPage() {
@@ -334,7 +334,7 @@ export default function CalendarPage() {
                               width: `calc(${(spanN)}/7*100% - 14px)`,
                               height: 17,
                               borderRadius: 99,
-                              background: r.status === "pending" ? `repeating-linear-gradient(45deg, ${color}33 0 6px, ${color}1f 6px 12px)` : color,
+                              background: r.status === "pending" ? `repeating-linear-gradient(45deg, color-mix(in srgb, ${color} 24%, transparent) 0 6px, color-mix(in srgb, ${color} 12%, transparent) 6px 12px)` : color,
                               borderColor: r.status === "pending" ? color : "transparent",
                             }}
                             title={`${c.name} · ${LEAVE_META[r.type].label}${r.status === "pending" ? " (pending)" : ""} · ${fmtRange(r.start, r.end)}${r.locumStatus === "booked" ? ` · Locum: ${r.locumName}` : r.locumStatus === "needed" ? " · needs locum" : ""}`}
@@ -409,7 +409,7 @@ export default function CalendarPage() {
                             )}
                             style={
                               r.status === "pending"
-                                ? { borderColor: BAR_COLORS[r.type], background: `repeating-linear-gradient(45deg, ${BAR_COLORS[r.type]}26 0 6px, ${BAR_COLORS[r.type]}14 6px 12px)` }
+                                ? { borderColor: BAR_COLORS[r.type], background: `repeating-linear-gradient(45deg, color-mix(in srgb, ${BAR_COLORS[r.type]} 18%, transparent) 0 6px, color-mix(in srgb, ${BAR_COLORS[r.type]} 10%, transparent) 6px 12px)` }
                                 : { background: BAR_COLORS[r.type] }
                             }
                             title={`${LEAVE_META[r.type].label} · ${fmtRange(r.start, r.end)} — click for detail`}

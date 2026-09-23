@@ -200,7 +200,7 @@ function BalanceCard({
   tone: "slate" | "teal";
 }) {
   const pctUsed = entitlement > 0 ? Math.min(100, ((used + pending) / entitlement) * 100) : 0;
-  const color = tone === "slate" ? "#0D9488" : "#F59E0B";
+  const color = tone === "slate" ? "var(--lv-annual)" : "var(--lv-study)";
   return (
     <Card className="relative overflow-hidden p-6">
       <div className="absolute inset-x-0 top-0 h-[3px]" style={{ background: color }} />

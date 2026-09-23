@@ -15,12 +15,12 @@ import {
 } from "recharts";
 
 const TOOLTIP_STYLE = {
-  background: "#0F172A",
+  background: "var(--tooltip-bg)",
   border: "1px solid rgba(255,255,255,0.12)",
   borderRadius: 14,
   padding: "10px 14px",
   fontSize: 12,
-  color: "#F8FAFC",
+  color: "var(--tooltip-fg)",
   boxShadow: "0 16px 40px -12px rgba(15,23,42,0.5)",
 } as const;
 
@@ -37,8 +37,8 @@ export function MonthlyBars({
       <BarChart data={data} margin={{ top: 10, right: 4, left: -18, bottom: 0 }} barCategoryGap="28%">
         <defs>
           <linearGradient id="barTeal" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#14B8A6" />
-            <stop offset="100%" stopColor="#0F766E" />
+            <stop offset="0%" stopColor="var(--chart-bar-top)" />
+            <stop offset="100%" stopColor="var(--chart-bar-bottom)" />
           </linearGradient>
         </defs>
         <CartesianGrid vertical={false} stroke="rgba(15,23,42,0.07)" strokeDasharray="3 6" />
@@ -66,10 +66,10 @@ export function MonthlyBars({
         {avgTarget > 0 && (
           <ReferenceLine
             y={avgTarget}
-            stroke="#F59E0B"
+            stroke="var(--pace-surplus)"
             strokeDasharray="6 5"
             strokeWidth={1.5}
-            label={{ value: "pro-rata target", position: "insideTopRight", fontSize: 10, fill: "#B45309", fontWeight: 700 }}
+            label={{ value: "pro-rata target", position: "insideTopRight", fontSize: 10, fill: "var(--color-amber-700)", fontWeight: 700 }}
           />
         )}
         <Bar dataKey="completed" fill="url(#barTeal)" radius={[6, 6, 2, 2]} maxBarSize={30} />

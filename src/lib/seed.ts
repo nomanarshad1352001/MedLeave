@@ -9,7 +9,7 @@ export const SITES: Site[] = [
     short: "Oakfield",
     town: "Chipping Norton, Oxfordshire",
     pcn: "Cotswold Vale PCN",
-    color: "#0D9488",
+    color: "var(--site-oak)",
   },
   {
     id: "pine",
@@ -17,19 +17,19 @@ export const SITES: Site[] = [
     short: "Pine Valley",
     town: "Moreton-in-Marsh, Gloucestershire",
     pcn: "Cotswold Vale PCN",
-    color: "#F59E0B",
+    color: "var(--site-pine)",
   },
 ];
 
 export const CLINICIANS: Clinician[] = [
-  { id: "c_eleanor", name: "Dr. Eleanor Vance", firstName: "Eleanor", initials: "EV", role: "partner", grade: "Partner GP", siteId: "oak", sessionsPerWeek: 9, clinical: true, color: "#0D9488", since: "2011-04-01", email: "eleanor.vance@medleave.demo", access: "clinical" },
-  { id: "c_sarah", name: "Sarah Jenkins", firstName: "Sarah", initials: "SJ", role: "manager", grade: "Practice Manager", siteId: "oak", sessionsPerWeek: 10, clinical: false, color: "#F59E0B", since: "2016-09-12", email: "sarah.jenkins@medleave.demo", access: "management" },
-  { id: "c_james", name: "Dr. James Wilson", firstName: "James", initials: "JW", role: "salaried", grade: "Salaried GP", siteId: "oak", sessionsPerWeek: 6, clinical: true, color: "#0EA5E9", since: "2019-08-01", email: "james.wilson@medleave.demo", access: "clinical" },
-  { id: "c_amara", name: "Dr. Amara Osei", firstName: "Amara", initials: "AO", role: "registrar", grade: "GP Registrar (ST3)", siteId: "oak", sessionsPerWeek: 8, clinical: true, color: "#8B5CF6", since: "2024-02-05", email: "amara.osei@medleave.demo", access: null },
-  { id: "c_nina", name: "Dr. Nina Kowalski", firstName: "Nina", initials: "NK", role: "salaried", grade: "Salaried GP", siteId: "oak", sessionsPerWeek: 7, clinical: true, color: "#F43F5E", since: "2017-03-20", email: "nina.kowalski@medleave.demo", access: null },
-  { id: "c_marcus", name: "Dr. Marcus Chen", firstName: "Marcus", initials: "MC", role: "partner", grade: "Partner GP", siteId: "pine", sessionsPerWeek: 8, clinical: true, color: "#0F766E", since: "2013-06-01", email: "marcus.chen@medleave.demo", access: null },
-  { id: "c_priya", name: "Dr. Priya Sharma", firstName: "Priya", initials: "PS", role: "salaried", grade: "Salaried GP", siteId: "pine", sessionsPerWeek: 4, clinical: true, color: "#B45309", since: "2021-01-11", email: "priya.sharma@medleave.demo", access: null },
-  { id: "c_tom", name: "Dr. Tom Hartley", firstName: "Tom", initials: "TH", role: "salaried", grade: "Salaried GP", siteId: "pine", sessionsPerWeek: 5, clinical: true, color: "#0369A1", since: "2022-10-03", email: "tom.hartley@medleave.demo", access: null },
+  { id: "c_eleanor", name: "Dr. Eleanor Vance", firstName: "Eleanor", initials: "EV", role: "partner", grade: "Partner GP", siteId: "oak", sessionsPerWeek: 9, clinical: true, color: "var(--st-eleanor)", since: "2011-04-01", email: "eleanor.vance@medleave.demo", access: "clinical" },
+  { id: "c_sarah", name: "Sarah Jenkins", firstName: "Sarah", initials: "SJ", role: "manager", grade: "Practice Manager", siteId: "oak", sessionsPerWeek: 10, clinical: false, color: "var(--st-sarah)", since: "2016-09-12", email: "sarah.jenkins@medleave.demo", access: "management" },
+  { id: "c_james", name: "Dr. James Wilson", firstName: "James", initials: "JW", role: "salaried", grade: "Salaried GP", siteId: "oak", sessionsPerWeek: 6, clinical: true, color: "var(--st-james)", since: "2019-08-01", email: "james.wilson@medleave.demo", access: "clinical" },
+  { id: "c_amara", name: "Dr. Amara Osei", firstName: "Amara", initials: "AO", role: "registrar", grade: "GP Registrar (ST3)", siteId: "oak", sessionsPerWeek: 8, clinical: true, color: "var(--st-amara)", since: "2024-02-05", email: "amara.osei@medleave.demo", access: null },
+  { id: "c_nina", name: "Dr. Nina Kowalski", firstName: "Nina", initials: "NK", role: "salaried", grade: "Salaried GP", siteId: "oak", sessionsPerWeek: 7, clinical: true, color: "var(--st-nina)", since: "2017-03-20", email: "nina.kowalski@medleave.demo", access: null },
+  { id: "c_marcus", name: "Dr. Marcus Chen", firstName: "Marcus", initials: "MC", role: "partner", grade: "Partner GP", siteId: "pine", sessionsPerWeek: 8, clinical: true, color: "var(--st-marcus)", since: "2013-06-01", email: "marcus.chen@medleave.demo", access: null },
+  { id: "c_priya", name: "Dr. Priya Sharma", firstName: "Priya", initials: "PS", role: "salaried", grade: "Salaried GP", siteId: "pine", sessionsPerWeek: 4, clinical: true, color: "var(--st-priya)", since: "2021-01-11", email: "priya.sharma@medleave.demo", access: null },
+  { id: "c_tom", name: "Dr. Tom Hartley", firstName: "Tom", initials: "TH", role: "salaried", grade: "Salaried GP", siteId: "pine", sessionsPerWeek: 5, clinical: true, color: "var(--st-tom)", since: "2022-10-03", email: "tom.hartley@medleave.demo", access: null },
 ];
 
 /** Demo sign-in accounts shown on the login screen — one click autofills the form. */

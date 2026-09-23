@@ -403,7 +403,7 @@ export default function SessionsPage() {
                         </td>
                         <td className="px-5 py-3.5">
                           <span className="flex items-center gap-2.5">
-                            <Bar value={rp} color={rp >= 97 ? "#0D9488" : rp >= 88 ? "#F59E0B" : "#F43F5E"} className="w-24" />
+                            <Bar value={rp} color={rp >= 97 ? "var(--pace-on)" : rp >= 88 ? "var(--pace-surplus)" : "var(--pace-deficit)"} className="w-24" />
                             <span className="w-10 text-[12px] font-bold tabular-nums text-slate-900">{rp}%</span>
                           </span>
                         </td>
@@ -430,7 +430,7 @@ export default function SessionsPage() {
               </table>
             </div>
             <div className="flex items-center justify-between border-t border-slate-900/[0.07] bg-slate-50/60 px-5 py-3 text-[11.5px] font-semibold text-slate-900/55">
-              <span className="flex items-center gap-1.5"><Dot color="#0D9488" /> {clinicalStaff.length} clinicians under rolling audit</span>
+              <span className="flex items-center gap-1.5"><Dot color="var(--pace-on)" /> {clinicalStaff.length} clinicians under rolling audit</span>
               <a href="/app/roster" className="inline-flex items-center gap-1 text-slate-700 transition hover:text-slate-900">
                 Open staff roster <ArrowRight className="size-3.5" />
               </a>

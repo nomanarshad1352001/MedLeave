@@ -118,7 +118,7 @@ export default function ApprovalsPage() {
                       <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                         <p className="text-[15px] font-bold text-slate-900">{c.name}</p>
                         <span className="rounded-full bg-slate-900/[0.06] px-2 py-0.5 text-[10px] font-bold text-slate-800">{c.grade}</span>
-                        <span className="rounded-full px-2 py-0.5 text-[10px] font-bold" style={{ background: (site?.color ?? "#0D9488") + "1A", color: site?.color }}>{site?.short}</span>
+                        <span className="rounded-full px-2 py-0.5 text-[10px] font-bold" style={{ background: `color-mix(in srgb, ${site?.color ?? "var(--site-oak)"} 14%, transparent)`, color: site?.color }}>{site?.short}</span>
                       </div>
                       <p className="mt-1 text-[12.5px] font-semibold text-slate-900">
                         <Dot color={meta.color} className="mr-1.5" />{meta.label} — {fmtRange(r.start, r.end)}

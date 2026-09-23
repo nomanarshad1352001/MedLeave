@@ -89,9 +89,9 @@ export const PACE_META: Record<
   PaceStatus,
   { label: string; short: string; tone: "green" | "rose" | "amber"; color: string }
 > = {
-  "on-track": { label: "On Track", short: "On track", tone: "green", color: "#10B981" },
-  deficit: { label: "At Risk — Deficit", short: "Deficit", tone: "rose", color: "#F43F5E" },
-  surplus: { label: "Surplus — Overworking", short: "Surplus", tone: "amber", color: "#F59E0B" },
+  "on-track": { label: "On Track", short: "On track", tone: "green", color: "var(--pace-on)" },
+  deficit: { label: "At Risk — Deficit", short: "Deficit", tone: "rose", color: "var(--pace-deficit)" },
+  surplus: { label: "Surplus — Overworking", short: "Surplus", tone: "amber", color: "var(--pace-surplus)" },
 };
 
 export interface AuditEntry {
@@ -110,15 +110,19 @@ export interface ToastMsg {
   variant: "success" | "error" | "info" | "warning";
 }
 
+/** Soft/deep tints derived from the theme-aware base colour at runtime. */
+const softTint = (v: string) => `color-mix(in srgb, ${v} 16%, white)`;
+const deepTint = (v: string) => `color-mix(in srgb, ${v} 78%, black)`;
+
 export const LEAVE_META: Record<
   LeaveType,
   { label: string; capped: boolean; color: string; soft: string; deep: string }
 > = {
-  annual: { label: "Annual Leave", capped: true, color: "#0D9488", soft: "#CCFBF1", deep: "#115E59" },
-  study: { label: "Study Leave", capped: true, color: "#F59E0B", soft: "#FEF3C7", deep: "#B45309" },
-  parental: { label: "Maternity / Paternity", capped: false, color: "#8B5CF6", soft: "#EDE9FE", deep: "#6D28D9" },
-  sickness: { label: "Sickness", capped: false, color: "#F43F5E", soft: "#FFE4E6", deep: "#BE123C" },
-  locum: { label: "Locum-Covered", capped: false, color: "#0EA5E9", soft: "#E0F2FE", deep: "#0369A1" },
+  annual: { label: "Annual Leave", capped: true, color: "var(--lv-annual)", soft: softTint("var(--lv-annual)"), deep: deepTint("var(--lv-annual)") },
+  study: { label: "Study Leave", capped: true, color: "var(--lv-study)", soft: softTint("var(--lv-study)"), deep: deepTint("var(--lv-study)") },
+  parental: { label: "Maternity / Paternity", capped: false, color: "var(--lv-parental)", soft: softTint("var(--lv-parental)"), deep: deepTint("var(--lv-parental)") },
+  sickness: { label: "Sickness", capped: false, color: "var(--lv-sickness)", soft: softTint("var(--lv-sickness)"), deep: deepTint("var(--lv-sickness)") },
+  locum: { label: "Locum-Covered", capped: false, color: "var(--lv-locum)", soft: softTint("var(--lv-locum)"), deep: deepTint("var(--lv-locum)") },
 };
 
 export const ROLE_LABEL: Record<Role, string> = {
@@ -147,7 +151,7 @@ export const COVER_LABEL: Record<CoverPlan, string> = {
 export const LOCUM_AGENCIES = ["Cotswold Locums", "GP Now Agency", "MediBank Booking", "In-house locum pool"];
 
 export const LOCUM_STATUS_META: Record<LocumStatus, { label: string; short: string; color: string; soft: string; deep: string }> = {
-  "not-needed": { label: "No locum required", short: "No locum", color: "#64748B", soft: "#F1F5F9", deep: "#334155" },
-  needed: { label: "Needs locum cover", short: "Needs locum", color: "#F43F5E", soft: "#FFE4E6", deep: "#BE123C" },
-  booked: { label: "Locum booked", short: "Locum booked", color: "#0D9488", soft: "#CCFBF1", deep: "#115E59" },
+  "not-needed": { label: "No locum required", short: "No locum", color: "var(--locum-none)", soft: softTint("var(--locum-none)"), deep: deepTint("var(--locum-none)") },
+  needed: { label: "Needs locum cover", short: "Needs locum", color: "var(--locum-needed)", soft: softTint("var(--locum-needed)"), deep: deepTint("var(--locum-needed)") },
+  booked: { label: "Locum booked", short: "Locum booked", color: "var(--locum-booked)", soft: softTint("var(--locum-booked)"), deep: deepTint("var(--locum-booked)") },
 };

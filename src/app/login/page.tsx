@@ -20,13 +20,14 @@ import { useState } from "react";
 import { DEMO_ACCOUNTS } from "@/lib/seed";
 import { useStore } from "@/store/useStore";
 import { Avatar, cn } from "@/components/ui";
+import { THEMES } from "@/components/ThemeSwitcher";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const HERO_IMG = "https://images.pexels.com/photos/5327649/pexels-photo-5327649.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200";
 
 export default function LoginPage() {
   const router = useRouter();
-  const { signIn, clinicians } = useStore();
+  const { signIn, clinicians, theme, setTheme } = useStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPw, setShowPw] = useState(false);
@@ -106,7 +107,7 @@ export default function LoginPage() {
             >
               {[
                 ["On Track", "bg-emerald-400/15 text-emerald-300 border-emerald-300/20"],
-                ["At Risk — Deficit", "bg-rose-500/20 text-[#FECDD3] border-[#FECDD3]/20"],
+                ["At Risk — Deficit", "bg-rose-500/20 text-rose-200 border-rose-200/20"],
                 ["Surplus — Overworking", "bg-teal-400/15 text-teal-300 border-teal-300/25"],
               ].map(([label, cls]) => (
                 <span key={label} className={cn("rounded-full border px-3.5 py-1.5 text-[11px] font-bold", cls)}>
@@ -299,6 +300,34 @@ export default function LoginPage() {
             <p className="flex items-center gap-2 text-[11.5px] text-slate-900/45">
               <UserRound className="size-3.5" /> Signing in as Management unlocks approvals, rosters, overrides and policies.
             </p>
+
+            {/* theme choice available before you enter */}
+            <div className="flex items-center justify-between border-t border-slate-900/[0.08] pt-4">
+              <span className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-slate-400">Appearance</span>
+              <div className="flex gap-1.5 rounded-full border border-slate-900/10 bg-slate-900/[0.04] p-1">
+                {THEMES.map((t) => {
+                  const active = theme === t.id;
+                  return (
+                    <button
+                      key={t.id}
+                      onClick={() => setTheme(t.id)}
+                      title={t.blurb}
+                      className={cn(
+                        "flex cursor-pointer items-center gap-2 rounded-full px-3 py-1.5 text-[11.5px] font-bold transition-all",
+                        active ? "bg-slate-900 text-white shadow-soft" : "text-slate-500 hover:text-slate-900"
+                      )}
+                    >
+                      <span className="flex gap-0.5">
+                        {t.swatches.slice(0, 3).map((c) => (
+                          <span key={c} className="size-2.5 rounded-full ring-1 ring-black/10" style={{ background: c }} />
+                        ))}
+                      </span>
+                      {t.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>

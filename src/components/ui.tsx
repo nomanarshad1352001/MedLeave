@@ -116,7 +116,7 @@ export function Avatar({ c, size = "md", ring = false }: { c: Clinician; size?: 
         sizes[size],
         ring && "ring-2 ring-card"
       )}
-      style={{ background: `linear-gradient(135deg, ${c.color}, ${c.color}CC 60%, #0F172A)` }}
+      style={{ background: `linear-gradient(140deg, ${c.color}, color-mix(in srgb, ${c.color} 42%, var(--avatar-ink)) 72%, var(--avatar-ink))` }}
       title={c.name}
     >
       {c.initials}
@@ -131,7 +131,7 @@ export function Ring({
   value,
   size = 96,
   stroke = 8,
-  color = "#0D9488",
+  color = "var(--lv-annual)",
   track = "rgba(15,23,42,0.08)",
   children,
   className,
@@ -169,7 +169,7 @@ export function Ring({
   );
 }
 
-export function Bar({ value, color = "#0D9488", className, thin = false }: { value: number; color?: string; className?: string; thin?: boolean }) {
+export function Bar({ value, color = "var(--lv-annual)", className, thin = false }: { value: number; color?: string; className?: string; thin?: boolean }) {
   return (
     <div className={cn("w-full overflow-hidden rounded-full bg-slate-900/[0.07]", thin ? "h-1" : "h-1.5", className)}>
       <div

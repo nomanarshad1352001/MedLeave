@@ -23,6 +23,7 @@ import {
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/components/ui";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 const IMG = {
   hero: "https://images.pexels.com/photos/5619462/pexels-photo-5619462.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
@@ -100,6 +101,7 @@ function Nav() {
           ))}
         </nav>
         <div className="ml-auto flex items-center gap-3">
+          <ThemeSwitcher />
           <Link href="/login" className="hidden text-[13px] font-semibold text-paper/70 transition hover:text-teal-300 sm:block">Sign in</Link>
           <Link
             href="/login"
@@ -128,7 +130,7 @@ function Hero() {
       {/* ambient gradients */}
       <div className="pointer-events-none absolute -left-40 top-0 size-[560px] rounded-full bg-slate-600/25 blur-[140px]" />
       <div className="pointer-events-none absolute -right-32 bottom-0 size-[520px] rounded-full bg-teal-500/12 blur-[140px]" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(#F8FAFC 1px, transparent 1px)", backgroundSize: "26px 26px" }} />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(var(--tooltip-fg) 1px, transparent 1px)", backgroundSize: "26px 26px" }} />
 
       <motion.div style={{ y, opacity }} className="relative mx-auto max-w-7xl px-5 lg:px-8">
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
@@ -484,9 +486,9 @@ function ProductPreview() {
             <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-700/50">Approvals · live queue</p>
             <div className="mt-4 space-y-3">
               {[
-                ["PS", "#B45309", "Dr. Priya Sharma", "Annual · 11d · override needed", true],
-                ["MC", "#0F766E", "Dr. Marcus Chen", "Annual · 5d · within accrual", false],
-                ["AO", "#8B5CF6", "Dr. Amara Osei", "Study · 1d · within accrual", false],
+                ["PS", "var(--st-priya)", "Dr. Priya Sharma", "Annual · 11d · override needed", true],
+                ["MC", "var(--st-marcus)", "Dr. Marcus Chen", "Annual · 5d · within accrual", false],
+                ["AO", "var(--st-amara)", "Dr. Amara Osei", "Study · 1d · within accrual", false],
               ].map(([ini, color, name, line, warn]) => (
                 <div key={name as string} className="flex items-center gap-3 rounded-2xl border border-slate-900/[0.07] p-3">
                   <span className="flex size-9 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white" style={{ background: color as string }}>{ini}</span>
@@ -516,7 +518,7 @@ function ProductPreview() {
                       <span
                         key={d}
                         className="size-[13px] rounded-[4px]"
-                        style={{ background: v === 0 ? "rgba(15,23,42,0.06)" : v === 1 ? "rgba(13,148,136,0.45)" : "#0D9488" }}
+                        style={{ background: v === 0 ? "rgba(127,127,127,0.14)" : v === 1 ? "color-mix(in srgb, var(--lv-annual) 45%, transparent)" : "var(--lv-annual)" }}
                       />
                     );
                   })}
@@ -540,8 +542,8 @@ function ProductPreview() {
             <div className="mt-6 space-y-4">
               {[
                 ["Taken", "rgba(15,23,42,0.28)", [4, 14], "Annual · 5d"],
-                ["Pending", "repeating-linear-gradient(45deg,#F59E0B66 0 6px,#F59E0B22 6px 12px)", [46, 12], "Annual · 5d"],
-                ["Approved", "#0D9488", [68, 10], "Study · 2d"],
+                ["Pending", "repeating-linear-gradient(45deg,color-mix(in srgb, var(--lv-study) 40%, transparent) 0 6px,color-mix(in srgb, var(--lv-study) 15%, transparent) 6px 12px)", [46, 12], "Annual · 5d"],
+                ["Approved", "var(--lv-annual)", [68, 10], "Study · 2d"],
               ].map(([lane, bg, [x, w], label]) => (
                 <div key={lane as string} className="flex items-center gap-3">
                   <span className="w-[70px] text-right text-[9.5px] font-bold uppercase tracking-wider text-slate-900/40">{lane}</span>
@@ -781,7 +783,7 @@ function CTA() {
     <section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
       <Reveal>
         <div className="relative overflow-hidden rounded-[36px] bg-slate-900 px-8 py-16 text-center text-paper lg:py-24">
-          <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(#F8FAFC 1px, transparent 1px)", backgroundSize: "22px 22px" }} />
+          <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(var(--tooltip-fg) 1px, transparent 1px)", backgroundSize: "22px 22px" }} />
           <div className="pointer-events-none absolute -left-20 top-0 size-[380px] rounded-full bg-teal-500/15 blur-[120px]" />
           <p className="relative text-[11px] font-bold uppercase tracking-[0.24em] text-teal-300">Zero setup · no sign-in</p>
           <h2 className="relative mx-auto mt-4 max-w-2xl font-display text-4xl font-medium leading-tight tracking-tight lg:text-[56px]">
