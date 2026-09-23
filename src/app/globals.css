@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+
+  /* Primary slate / navy */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+
+  /* Trust accent teal */
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+
+  /* Danger rose */
+  --color-rose-100: #ffe4e6;
+  --color-rose-200: #fecdd3;
+  --color-rose-400: #fb7185;
+  --color-rose-500: #f43f5e;
+  --color-rose-600: #e11d48;
+  --color-rose-700: #be123c;
+
+  /* Warning amber */
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+
+  /* Surfaces */
+  --color-paper: #f8fafc;
+  --color-parchment: #f1f5f9;
+  --color-card: #ffffff;
+  --color-ink: #0f172a;
+
+  --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12);
+  --shadow-lift: 0 2px 6px rgba(15, 23, 42, 0.06), 0 22px 48px -20px rgba(15, 23, 42, 0.24);
+
+  --animate-marquee: marquee 46s linear infinite;
+  --animate-pulse-slow: pulse-slow 3.2s ease-in-out infinite;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes entrance-img {
+    from { clip-path: inset(7% 5% 7% 5% round 68px); opacity: 0.35; }
+    to { clip-path: inset(0% 0% 0% 0% round 28px); opacity: 1; }
+  }
+  @keyframes entrance-rise {
+    from { opacity: 0; transform: translateY(34px) scale(0.98); filter: blur(6px); }
+    to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+  }
+  @keyframes entrance-item {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes gate-slide {
+    from { transform: translateX(104%); }
+    to { transform: translateX(-104%); }
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes shimmer {
+  from { background-position: -420px 0; }
+  to { background-position: 420px 0; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-teal-300);
+  color: var(--color-slate-950);
+}
+
+/* Refined scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 23, 42, 0.2) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.16);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Date & time inputs */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.55;
+}
+input[type="date"]:hover::-webkit-calendar-picker-indicator,
+input[type="time"]:hover::-webkit-calendar-picker-indicator {
+  opacity: 0.9;
+}
+
+/* Range slider */
+input[type="range"].lux-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-teal-500) var(--fill, 50%), rgba(255, 255, 255, 0.16) var(--fill, 50%));
+  outline: none;
+}
+input[type="range"].lux-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--color-teal-500);
+  border: 3px solid #0f172a;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  cursor: grab;
+}
+input[type="range"].lux-range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--color-teal-500);
+  border: 3px solid #0f172a;
+  cursor: grab;
+}
+
+/* Subtle grid for the app shell backdrop */
+.texture-grain {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.rule-h {
+  background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.14), transparent);
+  height: 1px;
+}
+
+/* App entrance choreography */
+.ent-img {
+  animation: entrance-img 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.ent-rise {
+  animation: entrance-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.ent-item {
+  animation: entrance-item 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.gate-panel {
+  animation: gate-slide 0.95s cubic-bezier(0.84, 0, 0.16, 1) both;
+}
+
+/* Skeleton shimmer for loading states */
+.skeleton {
+  background-image: linear-gradient(
+    90deg,
+    rgba(15, 23, 42, 0.05) 0%,
+    rgba(15, 23, 42, 0.11) 40%,
+    rgba(15, 23, 42, 0.05) 80%
+  );
+  background-size: 420px 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.6s linear infinite;
+}
+
+/* Tooltip */
+.tip-pop {
+  animation: entrance-item 0.18s ease-out both;
+}
+
+/* Pointer utilities */
+.dg-main {
+  touch-action: pan-y;
+}
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+.ghost {
+  pointer-events: none;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
